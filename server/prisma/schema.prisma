@@ -12,12 +12,16 @@ datasource db {
 
 model User {
   id   String    @id @default(uuid())
+  name String    @unique @default("nigga")
   sets WordSet[]
 }
 
 model WordSet {
-  id     String @id @default(uuid())
-  user   User   @relation(fields: [userId], references: [id])
-  sets   Json
-  userId String
+  id          String @id @default(uuid())
+  user        User   @relation(fields: [userId], references: [id])
+  name        String
+  terms       String
+  progression String
+  // sets   Json
+  userId      String
 }
